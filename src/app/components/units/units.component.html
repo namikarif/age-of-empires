@@ -39,6 +39,7 @@
   <div class="col-md-12 col-sm-12 mt-4">
     <p-table dataKey="id"
              currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries"
+             [loading]="loading"
              [value]="filteredUnitList"
              [rowHover]="true"
              [rows]="10"

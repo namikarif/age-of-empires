@@ -12,6 +12,7 @@ import {Router} from '@angular/router';
   styleUrls: ['./units.component.scss']
 })
 export class UnitsComponent implements OnInit {
+  loading: boolean;
   ageOptions = [
     {
       label: 'All',
@@ -65,10 +66,12 @@ export class UnitsComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.loading = true;
     this._http.get('assets/mock-data/age-of-empires-units.json').subscribe((response: { units: Array<UnitsDto> }) => {
       this.unitList = response.units;
       this.filteredUnitList = response.units;
-    });
+      this.loading = false;
+    }, () => this.loading = false);
   }
 
   applyFilter() {
