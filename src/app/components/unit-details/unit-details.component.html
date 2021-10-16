@@ -1,0 +1,69 @@
+<div class="col-md-12 col-sm-12 vw-100">
+  <table class="table table-bordered table-hover">
+    <tbody>
+    <!-- Tablo alanlarını bu şekilde dynamic olarakta oluşturabiliriz -->
+
+    <!--    <tr *ngFor="let unitKey of getUnitKeys()">-->
+    <!--      <ng-container *ngIf="unitKey === 'cost'; else elseTemplate">-->
+    <!--        <ng-template *ngFor="let cost of getCostKeys(unitDetail[unitKey])">-->
+    <!--          <td scope="col" class="title">{{cost}}: </td>-->
+    <!--          <td scope="col-2">{{unitDetail[unitKey][cost]}}</td>-->
+    <!--        </ng-template>-->
+    <!--      </ng-container>-->
+    <!--      <ng-template #elseTemplate>-->
+    <!--        <td scope="col" class="title">{{unitKey}}: </td>-->
+    <!--        <td scope="col-2">{{unitDetail[unitKey]}}</td>-->
+    <!--      </ng-template>-->
+    <!--    </tr>-->
+
+    <tr>
+      <td scope="col">ID:</td>
+      <td scope="col-2">{{unitDetail.id}}</td>
+    </tr>
+    <tr>
+      <td scope="col">Name:</td>
+      <td scope="col-2">{{unitDetail.name}}</td>
+    </tr>
+    <tr>
+      <td scope="col">Description:</td>
+      <td scope="col-2">{{unitDetail.description}}</td>
+    </tr>
+    <tr>
+      <td scope="col">Min.Required Age:</td>
+      <td scope="col-2">{{unitDetail.age}}</td>
+    </tr>
+    <tr *ngIf="unitDetail.cost && unitDetail.cost.Wood">
+      <td scope="col">Wood Cost:</td>
+      <td scope="col-2">{{unitDetail.cost.Wood}}</td>
+    </tr>
+    <tr *ngIf="unitDetail.cost && unitDetail.cost.Food">
+      <td scope="col">Food Cost:</td>
+      <td scope="col-2">{{unitDetail.cost.Food}}</td>
+    </tr>
+    <tr *ngIf="unitDetail.cost && unitDetail.cost.Gold">
+      <td scope="col">Gold Cost:</td>
+      <td scope="col-2">{{unitDetail.cost.Gold}}</td>
+    </tr>
+    <tr>
+      <td scope="col">Build Time:</td>
+      <td scope="col-2">{{unitDetail.build_time}}</td>
+    </tr>
+    <tr>
+      <td scope="col">Reload Time:</td>
+      <td scope="col-2">{{unitDetail.reload_time}}</td>
+    </tr>
+    <tr>
+      <td scope="col">Hit Point:</td>
+      <td scope="col-2">{{unitDetail.hit_points}}</td>
+    </tr>
+    <tr>
+      <td scope="col">Attack:</td>
+      <td scope="col-2">{{unitDetail.attack}}</td>
+    </tr>
+    <tr>
+      <td scope="col">Accuracy:</td>
+      <td scope="col-2">{{unitDetail.accuracy}}</td>
+    </tr>
+    </tbody>
+  </table>
+</div>

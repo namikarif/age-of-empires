@@ -1,0 +1,66 @@
+<div class="vw-100 d-grid">
+  <form class="form col-md-12 col-sm-12">
+    <div class="form-group">
+      <h5>Ages</h5>
+      <p-selectButton [options]="ageOptions"
+                      [(ngModel)]="filterObject.age"
+                      (onChange)="applyFilter()"
+                      name="age"
+                      optionLabel="label"
+                      optionValue="value">
+      </p-selectButton>
+    </div>
+    <div class="col-md-6 col-sm-6">
+      <h5 style="margin-left: -15px">Costs</h5>
+      <div class="form-group row" *ngFor="let cost of filterObject.costs; let i = index;">
+        <p-checkbox [(ngModel)]="cost.enable"
+                    (onChange)="changeCheckbox($event, cost)"
+                    binary="true"
+                    class="p-checkbox"
+                    [name]="'cost_' + i"
+                    [id]="'cost_'+ i">
+        </p-checkbox>
+        <label class="p-checkbox-label col-md-2 col-sm2" [for]="'cost_' + i">{{cost.type}}</label>
+        <p-slider [(ngModel)]="cost.values"
+                  [range]="true"
+                  [min]="0"
+                  [max]="200"
+                  [disabled]="!cost.enable"
+                  (onSlideEnd)="applyFilter()"
+                  class="p-radiobutton-box"
+                  [name]="'cost_values_' + i"
+                  class="col-md-4 col-sm-4">
+        </p-slider>
+        <label class="col-md-2 col-sm-2 p-radiobutton-label" *ngIf="cost.enable">{{cost.values[0]}}
+          - {{cost.values[1]}}</label>
+      </div>
+    </div>
+  </form>
+  <div class="col-md-12 col-sm-12 mt-4">
+    <p-table dataKey="id"
+             currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries"
+             [value]="filteredUnitList"
+             [rowHover]="true"
+             [rows]="10"
+             [showCurrentPageReport]="true"
+             [rowsPerPageOptions]="[10,25,50]"
+             [paginator]="true">
+      <ng-template pTemplate="header">
+        <tr>
+          <th>ID</th>
+          <th>Name</th>
+          <th>Age</th>
+          <th>Costs</th>
+        </tr>
+      </ng-template>
+      <ng-template pTemplate="body" let-unit>
+        <tr (click)="openUnitDetail(unit)">
+          <td>{{unit.id}}</td>
+          <td>{{unit.name}}</td>
+          <td>{{unit.age}}</td>
+          <td><span *ngFor="let costKey of getCostKeys(unit.cost)">{{costKey}}: {{unit.cost[costKey]}} </span></td>
+        </tr>
+      </ng-template>
+    </p-table>
+  </div>
+</div>

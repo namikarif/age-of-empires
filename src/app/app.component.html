@@ -1,0 +1,20 @@
+<div class="toolbar" role="banner">
+  <span class="text-center vw-100">{{pageTitle}}</span>
+  <div class="spacer"></div>
+  <a aria-label="Home"
+     title="Home"
+     class="menu-item"
+     routerLink="/home">
+    Home
+  </a>
+  <a aria-label="Units"
+     title="Units"
+     class="menu-item"
+     routerLink="/units">
+    Units
+  </a>
+</div>
+
+<div class="content" role="main">
+  <router-outlet></router-outlet>
+</div>

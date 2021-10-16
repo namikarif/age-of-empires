@@ -1,0 +1,59 @@
+@import "~bootstrap/scss/bootstrap.scss";
+@import "~ngx-bootstrap/datepicker/bs-datepicker.css";
+@import url('https://fonts.googleapis.com/css?family=Open+Sans');
+@import '~bootstrap/scss/functions';
+@import '~bootstrap/scss/variables';
+@import '~bootstrap/scss/mixins';
+@import "~primeng/resources/primeng.min.css";
+@import "~primeng/resources/themes/saga-blue/theme.css";
+@import "~primeicons/primeicons.css";
+@import "assets/scss/primeng.extend.scss";
+
+:host {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  font-size: 14px;
+  color: #333;
+  box-sizing: border-box;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.spacer {
+  flex: 1;
+}
+
+.toolbar {
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  background-color: white;
+  color: black;
+  font-weight: 600;
+  padding-right: 40px;
+
+  img {
+    margin: 0 16px;
+  }
+
+  .menu-item {
+    margin: auto 10px;
+
+    &.active {
+      color: lime;
+    }
+  }
+}
+
+.content {
+  display: flex;
+  padding: 0 16px;
+  flex-direction: column;
+  align-items: center;
+}
+
+.d-grid {
+  display: grid;
+}
